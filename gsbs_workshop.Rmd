@@ -1,0 +1,134 @@
+```{r global_options, include=FALSE}
+#install.packages("tidyverse")
+#install.packages("knitr")
+
+# Installing the packages used in the workshop
+library(knitr) #adding package to environment
+opts_chunk$set(fig.align="center", fig.height=3, fig.width=4) #determining markdown outputs
+library(tidyverse)
+
+data(iris) # calling the data so it will be in your environment
+summary(iris)
+
+```
+##Tidy Data Workshop
+
+## 1. Tidy data
+
+*Is the `iris` dataset tidy? Explain why or why not.*
+```{r}
+head(iris)
+```
+Explanation goes here.
+
+## 2. Selecting rows and columns
+
+*Pick all the rows in the `iris` dataset that pertain to species setosa, and store them in a new table called `iris.setosa`.*
+```{r }
+# R code goes here.
+#iris.setosa <- iris %>% filter()
+#iris.setosa %>% head()
+
+```
+
+*Using the 'iris.setosa' dataset, select the two 'Sepal' columns and store them back into `iris.setosa`.*
+```{r }
+# R code goes here.
+#iris.setosa %>% select() -> iris.setosa 
+#iris.setosa %>% head()
+
+```
+
+*Pick all the rows in the `iris` dataset where species virginica has a sepal length > 7. How many virginica plants have a sepal length > 7?*
+```{r }
+# R code goes here.
+#iris %>% filter() %>% head()
+```
+
+*Are there any cases in this data set for which the ratio of sepal length to sepal width exceeds the ratio of petal length to petal width? Use `filter()` to find out.*
+```{r }
+# R code goes here.
+#iris %>% filter() %>% head()
+```
+
+*Create a pared-down table which contains only data for species setosa and which only has the columns `Sepal.Length` and `Sepal.Width`. Store the result in a table called `iris.pared`.*
+```{r }
+#iris.pared <- iris %>% filter() %>% select()
+#iris.pared %>% head()
+
+# R code goes here.
+```
+
+## 3. Learn new tidyverse functions!
+
+*Learn a new function! 'mutate' is a function that allows you make a new column (or "variable of observations"). Use this function to make a new ratio column of sepal length to petal length.*
+```{r }
+
+#iris <- iris %>% mutate(length.ratio = )
+#iris %>% head()
+
+# R code goes here.
+```
+
+*Learn a new function! 'summarise' is a function that allows you to easily  summarize parts of your dataset. Let us find out the mean and median of the length ratio column we used in the previous code chunk. *
+```{r }
+
+#iris_summary <- iris %>% 
+#   summarise(mean_length.ratio  = mean(length.ratio),
+#             median_length.ratio = median())
+#iris_summary %>% head()
+
+# R code goes here.
+```
+
+*Learn a new function! 'group_by' is a function that allows you to group your dataset. Let us run the same summary statistics from before, and group by species.*
+```{r }
+
+#iris_summary <- iris %>% group_by() %>%
+#   summarise(mean_length.ratio  = mean(length.ratio),
+#             median_length.ratio = median()) 
+#iris_summary %>% head()
+
+# R code goes here.
+```
+
+
+## 4. Making Some Visualizations! 
+*Using ggplot, we will show how to make a scatter plot, boxplot, and histogram. For this first plot, let us make a scatter plot where we plot pedal width against petal length.*
+```{r}
+#iris %>% ggplot(aes(x = , y = )) + geom_point()
+
+```
+
+*Let us make the sample plot but color by species!*
+```{r}
+#iris %>% ggplot(aes(x = , y = ,color = )) + geom_point()
+
+```
+
+*What happens if we take out the y input?*
+```{r}
+#iris %>% ggplot(aes(x = ,color = )) + geom_point()
+
+```
+
+*Does this plot still work if you change the plot type to geom_histogram?*
+```{r}
+#iris %>% ggplot(aes(x = ,color = )) + geom_histogram()
+```
+
+*What about the same thing for geom_boxplot?*
+```{r}
+#iris %>% ggplot(aes(x = ,color = )) + geom_boxplot()
+```
+
+
+*Can we change some of the aesthetics to make geom_boxplot vertical?*
+```{r}
+#iris %>% ggplot(aes(color = )) + geom_boxplot()
+```
+
+
+## Want to learn more??
+*The following link is an online website that works as a great resource to learn more!*
+***https://r4ds.had.co.nz/index.html***
